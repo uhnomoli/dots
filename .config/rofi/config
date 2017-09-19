@@ -1,0 +1,17 @@
+rofi.modi:               drun,run
+
+rofi.bw:                 3
+rofi.fixed-num-lines:    false
+rofi.font:               Source Code Pro 10
+rofi.hide-scrollbar:     true
+rofi.location:           2
+rofi.separator-style:    none
+rofi.width:              35
+rofi.yoffset:            300
+
+rofi.color-normal:       #FDF6E3,#586E75,#EEE8D5,#586E75,#EEE8D5
+rofi.color-window:       #FDF6E3,#EEE8D5
+
+rofi.kb-accept-entry:    Shift+Return
+rofi.kb-accept-alt:      Control+j,Control+m,Return,KP_Enter
+

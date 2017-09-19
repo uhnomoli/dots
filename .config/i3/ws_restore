@@ -1,0 +1,14 @@
+#!/usr/bin/env zsh
+
+i3-msg "workspace www;append_layout $XDG_CONFIG_HOME/i3/ws_www.json"
+(chromium &)
+
+i3-msg "workspace sys;append_layout $XDG_CONFIG_HOME/i3/ws_sys.json"
+(urxvt &)
+
+i3-msg "workspace dev;append_layout $XDG_CONFIG_HOME/i3/ws_dev.json"
+(urxvt -name console -cd ~/projects/ &)
+(urxvt -name vim -cd ~/projects/ -e vim &)
+
+i3-msg "workspace www"
+

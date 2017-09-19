@@ -1,0 +1,29 @@
+[user]
+    name = Anomareh
+    email = Anomareh@users.noreply.github.com
+[core]
+    editor = vim
+[push]
+    default = simple
+[alias]
+    ad = add
+    ca = commit -a
+    st = status
+    di = diff
+    ph = push
+    pl = pull
+    aa = add .
+    rao = remote add origin
+    ch = checkout
+    cb = checkout -b
+    cm = commit
+    pho = push origin
+    ds = diff --staged
+    ap = add -p
+    lg = log
+    lo = log --oneline
+    i = init
+    ib = init --bare
+[init]
+    templatedir = ~/.config/git/templates
+

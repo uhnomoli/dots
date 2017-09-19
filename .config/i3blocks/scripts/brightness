@@ -1,0 +1,11 @@
+#!/bin/bash
+
+BRIGHTNESS=$(xbacklight -get | cut -d\. -f1)
+
+if [[ "${BRIGHTNESS}" -le 0 ]]; then
+    exit
+fi
+
+echo " <span color='#586E75'>scr</span> $BRIGHTNESS% "
+echo " <span color='#586E75'>scr</span> $BRIGHTNESS% "
+

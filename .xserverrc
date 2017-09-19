@@ -1,0 +1,4 @@
+#!/bin/sh
+
+exec /usr/bin/Xorg -nolisten tcp -auth "$XAUTHORITY" "$@" vt$XDG_VTNR
+

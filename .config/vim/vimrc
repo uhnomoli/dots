@@ -1,0 +1,70 @@
+scriptencoding utf-8
+
+set runtimepath=$XDG_CONFIG_HOME/vim
+set runtimepath+=$VIM/vimfiles
+set runtimepath+=$VIMRUNTIME
+set runtimepath+=$VIM/vimfiles/after
+set runtimepath+=$XDG_CONFIG_HOME/vim/after
+set viminfo+=n$XDG_CACHE_HOME/vim/viminfo
+
+set encoding=utf-8
+set ffs=unix,dos
+
+set hidden
+set laststatus=2
+filetype plugin indent on
+
+set guioptions-=m
+set guioptions-=T
+set guioptions-=r
+set guioptions-=L
+
+syntax on
+colorscheme solarized
+set background=dark
+
+set number
+set relativenumber
+
+set colorcolumn=80
+set cursorline
+set nowrap
+
+set completeopt=menuone
+set wildmenu
+set wildmode=longest,full
+
+set shiftwidth=4
+set softtabstop=4
+set tabstop=8
+set expandtab
+set smarttab
+set autoindent
+
+set ignorecase
+set smartcase
+
+set backspace=eol,indent,start
+set list listchars=tab:\|\ ,trail:\·
+set splitbelow
+set splitright
+
+let mapleader=','
+nnoremap <leader>, :bp<CR>
+nnoremap <leader>. :bn<CR>
+
+let g:airline_theme='solarized'
+let g:airline_powerline_fonts=1
+let g:airline#extensions#default#section_truncate_width={}
+let g:airline#extensions#tabline#enabled=1
+let g:airline#extensions#tabline#buffer_nr_show=1
+
+function! AirlineInit()
+    let g:airline_section_b=airline#section#create(['filetype'])
+    let g:airline_section_x=airline#section#create(['%P'])
+    let g:airline_section_y=airline#section#create(['%l'])
+    let g:airline_section_z=airline#section#create(['%c'])
+endfunction
+
+autocmd User AirlineAfterInit call AirlineInit()
+

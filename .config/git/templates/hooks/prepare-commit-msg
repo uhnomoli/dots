@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+ORIG="$1"
+
+echo -e "# Last 10 commits:" >> "$ORIG"
+git lo -10 | sed 's/^/#\t/' >> "$ORIG"
+printf "#" >> "$ORIG"
+

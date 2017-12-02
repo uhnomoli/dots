@@ -1,0 +1,4 @@
+# set XDG user directories
+XDG_DESKTOP_DIR="$HOME/"
+XDG_DOWNLOAD_DIR="$HOME/tmp"
+

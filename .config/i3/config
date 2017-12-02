@@ -160,6 +160,7 @@ bindsym $mod+Shift+z exec urxvt -name console -cd ~/projects/
 
 # app placement
 assign [class="Chromium"] $ws1
+assign [class="Firefox"] $ws1
 assign [class="MuPDF"] $ws5
 assign [class="^Steam$"] $ws5
 assign [class="^URxvt$" instance="^console$"] $ws3

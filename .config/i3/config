@@ -25,7 +25,7 @@ set $base1   #93A1A1
 set $base2   #EEE8D5
 set $base3   #FDF6E3
 
-set $cmd_lock    i3lock -ui ~/.config/feh/lock_screen
+set $cmd_lock    i3lock -ui $XDG_CONFIG_HOME/feh/lock_screen
 set $cmd_scr_i3b pkill -RTMIN+10 i3blocks
 set $cmd_vol     amixer set Master
 set $cmd_vol_i3b pkill -RTMIN+11 i3blocks

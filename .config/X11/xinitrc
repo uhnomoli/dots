@@ -24,7 +24,7 @@ fi
 
 
 # start apps
-sh "$XDG_CONFIG_HOME/feh/jungle"
+sh "$XDG_CONFIG_HOME/feh/wallpaper"
 
 exec i3
 

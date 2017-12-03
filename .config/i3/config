@@ -25,6 +25,7 @@ set $base1   #93A1A1
 set $base2   #EEE8D5
 set $base3   #FDF6E3
 
+set $cmd_lock    i3lock -ui ~/.config/feh/lock_screen
 set $cmd_scr_i3b pkill -RTMIN+10 i3blocks
 set $cmd_vol     amixer set Master
 set $cmd_vol_i3b pkill -RTMIN+11 i3blocks
@@ -70,6 +71,7 @@ floating_modifier $mod
 # i3 controls
 bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
+bindsym $mod+Shift+q exec $cmd_lock
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
 # switch to workspace
@@ -116,7 +118,7 @@ bindsym $mod+Shift+k move up
 bindsym $mod+Shift+l move right
 
 # kill window
-bindsym $mod+Shift+q kill
+bindsym $mod+q kill
 
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle

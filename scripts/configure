@@ -1,0 +1,18 @@
+CONFIG_DIR='$HOME/.config/.git'
+CONFIG_DIR_REAL=`eval echo "$CONFIG_DIR"`
+CONFIG_REPO='https://github.com/Anomareh/dots.git'
+
+function config {
+    git --git-dir="$CONFIG_DIR_REAL" --work-tree="$HOME" "$@"
+}
+
+
+cat <<NOTICE
+Add alias to your shell environment:
+    alias config="git --git-dir=$CONFIG_DIR --work-tree=$HOME"
+NOTICE
+
+git clone --bare "$CONFIG_REPO" "$CONFIG_DIR_REAL"
+config config --local status.showUntrackedFiles no
+config checkout
+

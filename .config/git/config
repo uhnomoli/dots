@@ -6,24 +6,31 @@
 [push]
     default = simple
 [alias]
-    ad = add
-    ca = commit -a
-    st = status
-    di = diff
-    ph = push
-    pl = pull
     aa = add .
-    rao = remote add origin
-    ch = checkout
-    cb = checkout -b
-    cm = commit
-    pho = push origin
-    ds = diff --staged
+    ad = add
     ap = add -p
+    bd = branch -d
+    bD = branch -D
+    ca = commit -a
+    cb = checkout -b
+    ch = checkout
+    cl = clone
+    cm = commit
+    di = diff
+    ds = diff --staged
+    in = init
+    ib = init --bare
     lg = log
     lo = log --oneline
-    i = init
-    ib = init --bare
+    mf = merge --ff-only
+    mg = merge --no-ff
+    ph = push
+    pu = push -u
+    pl = pull
+    ra = remote add
+    re = rebase
+    ri = rebase -i
+    st = status
 [init]
     templatedir = ~/.config/git/templates
 

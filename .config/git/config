@@ -9,8 +9,10 @@
     aa = add .
     ad = add
     ap = add -p
+    ba = branch -a
     bd = branch -d
     bD = branch -D
+    br = branch
     ca = commit -a
     cb = checkout -b
     ch = checkout
@@ -18,12 +20,14 @@
     cm = commit
     di = diff
     ds = diff --staged
-    in = init
+    i = init
     ib = init --bare
     lg = log
     lo = log --oneline
     mf = merge --ff-only
     mg = merge --no-ff
+    pa = push --all
+    pd = push -d
     ph = push
     pu = push -u
     pl = pull
@@ -33,4 +37,6 @@
     st = status
 [init]
     templatedir = ~/.config/git/templates
+[apply]
+    whitespace = nowarn
 

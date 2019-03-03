@@ -1,8 +1,9 @@
 alias reset="reset && . $XDG_CONFIG_HOME/zsh/prompt.zsh"
 
-alias colors="~/scripts/colors"
+alias colors='~/scripts/colors'
 alias config="git --git-dir=$HOME/.config/.git --work-tree=$HOME"
-alias d="diff -Naur --color"
+alias d='docker'
+alias di="diff -Naur --color"
 alias down='shutdown -h now'
 alias e="vim"
 alias g="git"
@@ -18,5 +19,7 @@ alias nap='systemctl suspend'
 alias pls="ls ~/projects/python/.envs"
 alias s="sudo"
 alias se="sudo -E"
+alias se='sudo -E'
+alias v='less -X'
 alias wget="wget --hsts-file=$XDG_CACHE_HOME/wget/hsts"
 

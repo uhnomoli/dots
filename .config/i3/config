@@ -50,6 +50,7 @@ client.urgent           $base02  $base03    $base1     $cyan     $magenta
 bar {
     position top
     status_command i3blocks -c $XDG_CONFIG_HOME/i3blocks/config
+    tray_output none
 
     # colors
     colors {

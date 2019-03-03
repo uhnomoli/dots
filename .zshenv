@@ -7,6 +7,9 @@ export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_CACHE_HOME="$HOME/.cache"
 export XDG_DATA_HOME="$HOME/.local/share"
 
+# set CUDA cache directory
+export CUDA_CACHE_PATH="$XDG_CACHE_HOME/nv"
+
 # set GnuPG home directory
 export GNUPGHOME="$XDG_DATA_HOME/gnupg"
 

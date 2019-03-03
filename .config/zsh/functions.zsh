@@ -71,3 +71,13 @@ prm() {
     fi
 }
 
+rq() {
+    RESPONSE=`curl -sS "$@"`
+
+    if [ "$?" -eq 0 ]; then
+        jq -C '.' <<< "$RESPONSE" | less -RX
+    else
+        echo "$RESPONSE"
+    fi
+}
+

@@ -96,3 +96,7 @@ rq() {
     fi
 }
 
+snip() {
+    cat "$1" | xclip -selection clipboard
+}
+

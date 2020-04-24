@@ -14,13 +14,13 @@ webcam_reset() {
 }
 
 pcd() {
-    if [ $# -eq 1 ] && [[ "$1" =~ "^[a-zA-Z0-9]+$" ]]; then
-        local dst="${HOME}/projects/python/${1}"
-        local env="${HOME}/projects/python/.envs/${1}"
+    if [[ "$#" -eq 1 && "$1" =~ ^[a-zA-Z0-9_.-]+$ ]]; then
+        local DST="${HOME}/projects/python/${1}"
+        local ENV="${HOME}/projects/python/.envs/${1}"
 
-        if [ -n "$VIRTUAL_ENV" ]; then
-            if [ "${VIRTUAL_ENV:t}" = "$1" ]; then
-                cd "$dst"
+        if [[ -n "$VIRTUAL_ENV" ]]; then
+            if [[ "${VIRTUAL_ENV:t}" == "$1" ]]; then
+                cd "$DST"
 
                 return
             fi
@@ -28,36 +28,36 @@ pcd() {
             pde
         fi
 
-        if [ -d "$dst" ] && [ -d "$env" ]; then
-            cd "$dst"
-            . "${env}/bin/activate"
+        if [[ -d "$DST" && -d "$ENV" ]]; then
+            cd "$DST"
+            source "${ENV}/bin/activate"
         fi
     fi
 }
 
 pde() {
-    if [ -n "$VIRTUAL_ENV" ]; then
+    if [[ -n "$VIRTUAL_ENV" ]]; then
         deactivate
         cd ~
     fi
 }
 
 pmk() {
-    if [ $# -eq 1 ] && [[ "$1" =~ "^[a-zA-Z0-9]+$" ]]; then
-        local dst="${HOME}/projects/python/${1}"
-        local env="${HOME}/projects/python/.envs/${1}"
+    if [[ "$#" -eq 1 && "$1" =~ ^[a-zA-Z0-9_.-]+$ ]]; then
+        local DST="${HOME}/projects/python/${1}"
+        local ENV="${HOME}/projects/python/.envs/${1}"
 
-        if [ -n "$VIRTUAL_ENV" ]; then
-            if [ "${VIRTUAL_ENV:t}" = "$1" ]; then
+        if [[ -n "$VIRTUAL_ENV" ]]; then
+            if [[ "${VIRTUAL_ENV:t}" == "$1" ]]; then
                 return
             fi
 
             pde
         fi
 
-        if [ ! -d "$dst" ] && [ ! -d "$env" ]; then
-            mkdir "$dst"
-            python -m venv "${env:a}"
+        if [[ ! -d "$DST" && ! -d "$ENV" ]]; then
+            mkdir "$DST"
+            python -m venv "${ENV:a}"
 
             pcd "$1"
         fi
@@ -65,23 +65,23 @@ pmk() {
 }
 
 prm() {
-    if [ $# -eq 1 ] && [[ "$1" =~ "^[a-zA-Z0-9]+$" ]]; then
-        local dst="${HOME}/projects/python/${1}"
-        local env="${HOME}/projects/python/.envs/${1}"
+    if [[ "$#" -eq 1 && "$1" =~ ^[a-zA-Z0-9_.-]+$ ]]; then
+        local DST="${HOME}/projects/python/${1}"
+        local ENV="${HOME}/projects/python/.envs/${1}"
 
-        if [ -n "$VIRTUAL_ENV" ]; then
-            if [ "${VIRTUAL_ENV:t}" = "$1" ]; then
+        if [[ -n "$VIRTUAL_ENV" ]]; then
+            if [[ "${VIRTUAL_ENV:t}" == "$1" ]]; then
                 cd "${HOME}/projects/python"
             fi
 
             pde
         fi
 
-        if [ -d "$dst" ] && [ -d "$env" ]; then
-            echo "$dst"
-            echo "$env"
+        if [[ -d "$DST" && -d "$ENV" ]]; then
+            echo "$DST"
+            echo "$ENV"
 
-            rm -Rf -I "$dst" "$env"
+            rm -Rf -I "$DST" "$ENV"
         fi
     fi
 }

@@ -4,8 +4,10 @@ set $mod Mod4
 set $ws1 www
 set $ws2 sys
 set $ws3 dev
-set $ws4 net
-set $ws5 msc
+set $ws4 re
+set $ws5 emu
+set $ws6 net
+set $ws0 msc
 
 set $yellow  #B58900
 set $orange  #CB4B16
@@ -83,6 +85,8 @@ bindsym $mod+2 workspace $ws2
 bindsym $mod+3 workspace $ws3
 bindsym $mod+4 workspace $ws4
 bindsym $mod+5 workspace $ws5
+bindsym $mod+6 workspace $ws6
+bindsym $mod+0 workspace $ws0
 
 # move to workspace
 bindsym $mod+Shift+1 move container to workspace $ws1
@@ -90,6 +94,8 @@ bindsym $mod+Shift+2 move container to workspace $ws2
 bindsym $mod+Shift+3 move container to workspace $ws3
 bindsym $mod+Shift+4 move container to workspace $ws4
 bindsym $mod+Shift+5 move container to workspace $ws5
+bindsym $mod+Shift+6 move container to workspace $ws6
+bindsym $mod+Shift+0 move container to workspace $ws0
 
 # change container layout (stacked, tabbed, toggle split)
 bindsym $mod+s layout stacking
@@ -164,16 +170,21 @@ bindsym $mod+Shift+z exec urxvt -name console -cd ~/projects/
 # app placement
 assign [class="Chromium"] $ws1
 assign [class="Firefox"] $ws1
-assign [class="MuPDF"] $ws5
-assign [class="obs"] $ws5
-assign [class="^Steam$"] $ws5
+assign [class="MuPDF"] $ws0
+assign [class="obs"] $ws0
 assign [class="^URxvt$" instance="^console$"] $ws3
 assign [class="^URxvt$" instance="^vim$"] $ws3
-assign [class="^URxvt$" instance="^irssi$"] $ws4
+assign [class="^URxvt$" instance="^irssi$"] $ws6
 assign [class="^URxvt$"] $ws2
-assign [class="Zathura"] $ws5
+assign [class="VirtualBox Manager"] $ws5
+assign [class="Zathura"] $ws0
+
+# ghidra
+assign [class="^Ghidra$"] $ws4
+for_window [class="^Ghidra$"] floating enable
 
 # steam
+assign [class="^Steam$"] $ws0
 for_window [class="^Steam$" title="^Friends$"] floating enable
 for_window [class="^Steam$" title="Steam - News"] floating enable
 for_window [class="^Steam$" title=".* - Chat"] floating enable

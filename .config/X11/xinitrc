@@ -23,6 +23,12 @@ if [ -f "$usermodmap" ]; then
 fi
 
 
+# configure virtual displays
+xrandr --output HDMI-0 --mode 5120x1440
+xrandr --setmonitor HDMI-0-1 1280/298x1440/336+0+0 HDMI-0
+xrandr --setmonitor HDMI-0-2 2560/597x1440/336+1280+0 none
+xrandr --setmonitor HDMI-0-3 1280/298x1440/336+3840+0 none
+
 # start apps
 sh "$XDG_CONFIG_HOME/feh/wallpaper"
 

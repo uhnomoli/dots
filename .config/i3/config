@@ -1,6 +1,10 @@
 # vars
 set $mod Mod4
 
+set $d1 HDMI-0-1
+set $d2 HDMI-0-2
+set $d3 HDMI-0-3
+
 set $ws1 www
 set $ws2 sys
 set $ws3 dev
@@ -48,8 +52,37 @@ client.focused_inactive $base02  $base03    $base01    $cyan     $base2
 client.unfocused        $base02  $base03    $base1     $cyan     $base03
 client.urgent           $base02  $base03    $base1     $cyan     $magenta
 
+# workspaces
+workspace $ws1 output $d1
+workspace $ws2 output $d2
+workspace $ws3 output $d2
+workspace $ws4 output $d3
+workspace $ws5 output $d2
+workspace $ws6 output $d3
+workspace $ws0 output $d3
+
 # bar
 bar {
+    output $d1
+    output $d3
+    position top
+    tray_output none
+
+    # colors
+    colors {
+        background $base03
+
+        #                  BORDER   BACKGROUND FOREGROUND
+        focused_workspace  $base2   $base2     $base01
+        active_workspace   $base02  $base02    $base1
+        inactive_workspace $base02  $base02    $base1
+        urgent_workspace   $magenta $magenta   $base3
+        binding_mode       $magenta $magenta   $base3
+    }
+}
+
+bar {
+    output $d2
     position top
     status_command i3blocks -c $XDG_CONFIG_HOME/i3blocks/config
     tray_output none
@@ -66,7 +99,6 @@ bar {
         binding_mode       $magenta $magenta   $base3
     }
 }
-
 
 # mod keys
 floating_modifier $mod
@@ -123,6 +155,10 @@ bindsym $mod+Shift+h move left
 bindsym $mod+Shift+j move down
 bindsym $mod+Shift+k move up
 bindsym $mod+Shift+l move right
+
+# move workspace
+bindsym $mod+Ctrl+h move workspace to output left
+bindsym $mod+Ctrl+l move workspace to output right
 
 # kill window
 bindsym $mod+q kill

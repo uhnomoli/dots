@@ -200,8 +200,8 @@ bindsym $mod+Shift+d exec rofi -show drun
 bindsym $mod+Return exec i3-sensible-terminal
 bindsym $mod+Shift+Return exec chromium
 
-bindsym $mod+z exec urxvt -name vim -cd ~/projects/ -e vim
-bindsym $mod+Shift+z exec urxvt -name console -cd ~/projects/
+bindsym $mod+z exec urxvt -name console -cd ~/projects/
+bindsym $mod+Shift+z exec urxvt -name vim -cd ~/projects/ -e vim
 
 # app placement
 assign [class="Chromium"] $ws1

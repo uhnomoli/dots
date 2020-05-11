@@ -56,7 +56,7 @@ client.urgent           $base02  $base03    $base1     $cyan     $magenta
 workspace $ws1 output $d1
 workspace $ws2 output $d2
 workspace $ws3 output $d2
-workspace $ws4 output $d3
+workspace $ws4 output $d2
 workspace $ws5 output $d2
 workspace $ws6 output $d3
 workspace $ws0 output $d3

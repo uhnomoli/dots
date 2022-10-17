@@ -5,5 +5,5 @@ URxvt*scrollBar: false
 URxvt*font: xft:Source Code Pro:pixelsize=13
 
 ! colors
-#include </home/anomareh/.config/urxvt/colors/solarized_light>
+#include </home/anomareh/.config/urxvt/colors/gruvbox-dark-medium>
 

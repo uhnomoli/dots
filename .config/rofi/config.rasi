@@ -1,0 +1,55 @@
+configuration {
+    fixed-num-lines: false;
+    font: "Source Code Pro 10";
+    location: 2;
+    modes: "drun,run";
+    yoffset: 300;
+
+    filebrowser {
+        directories-first: true;
+        sorting-method: "name";
+    }
+
+    timeout {
+        action: "kb-cancel";
+        delay: 0;
+    }
+}
+
+@theme "/usr/share/rofi/themes/gruvbox-dark.rasi"
+
+* {
+    gruvbox-dark-bg0: #29251D;
+    gruvbox-dark-bg0-soft: #332E24;
+    gruvbox-dark-bg2: #4F483B;
+    gruvbox-dark-bg3: #665E4D;
+
+    gruvbox-dark-aqua-dark: #689D6A;
+    gruvbox-dark-aqua-light: #8EC07C;
+
+    border-color: @gruvbox-dark-bg0-soft;
+    selected-normal-background: @gruvbox-dark-aqua-light;
+    selected-normal-foreground: @gruvbox-dark-bg0;
+}
+
+case-indicator, entry, inputbar, prompt, textbox-prompt-sep {
+    background-color: @gruvbox-dark-bg2;
+    text-colror: @gruvbox-dark-fg1;
+    text-transform: uppercase;
+}
+
+element, inputbar, message, mode-switcher {
+    padding: 5;
+}
+
+listview {
+    border: 0;
+    padding: 0;
+    scrollbar: false;
+}
+
+window {
+    border: 0;
+    padding: 0;
+}
+

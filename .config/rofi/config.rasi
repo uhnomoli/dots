@@ -19,8 +19,8 @@ configuration {
 @theme "/usr/share/rofi/themes/gruvbox-dark.rasi"
 
 * {
-    gruvbox-dark-bg0: #29251D;
-    gruvbox-dark-bg0-soft: #332E24;
+    gruvbox-dark-bg0: #29251DBF;
+    gruvbox-dark-bg0-soft: #332E24BF;
     gruvbox-dark-bg2: #4F483B;
     gruvbox-dark-bg3: #665E4D;
 
@@ -32,9 +32,16 @@ configuration {
     selected-normal-foreground: @gruvbox-dark-bg0;
 }
 
-case-indicator, entry, inputbar, prompt, textbox-prompt-sep {
-    background-color: @gruvbox-dark-bg2;
-    text-colror: @gruvbox-dark-fg1;
+mainbox,
+case-indicator, entry, prompt, textbox-prompt-sep,
+textbox,
+element, element-icon, element-text, listview,
+button {
+    background-color: transparent;
+}
+
+case-indicator, entry, prompt, textbox-prompt-sep {
+    text-color: @gruvbox-dark-fg1;
     text-transform: uppercase;
 }
 
@@ -42,14 +49,25 @@ element, inputbar, message, mode-switcher {
     padding: 5;
 }
 
+inputbar {
+    background-color: @gruvbox-dark-bg2;
+}
+
 listview {
     border: 0;
     padding: 0;
     scrollbar: false;
+    spacing: 0;
+}
+
+mainbox {
+    spacing: 0;
 }
 
 window {
+    background-color: transparent;
     border: 0;
     padding: 0;
+    transparency: "real";
 }
 

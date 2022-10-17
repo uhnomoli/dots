@@ -36,7 +36,7 @@ if ($acpi !~ /: (\w+), (\d+)%/) {
 
 $status = $1;
 $percent = $2;
-$full_text = " <span color='#586E75'>bat</span> ";
+$full_text = " <span color='#FE8019'>BAT</span> ";
 
 if ($status eq 'Discharging') {
 	$full_text .= '';

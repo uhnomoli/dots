@@ -24,8 +24,10 @@ set guioptions-=r
 set guioptions-=L
 
 syntax on
-colorscheme solarized
 set background=dark
+set termguicolors
+colorscheme gruvbox
+hi Normal ctermbg=NONE guibg=NONE
 
 set number
 set relativenumber
@@ -57,7 +59,7 @@ let mapleader=','
 nnoremap <leader>, :bp<CR>
 nnoremap <leader>. :bn<CR>
 
-let g:airline_theme='solarized'
+let g:airline_theme='gruvbox'
 let g:airline_powerline_fonts=1
 let g:airline#extensions#default#section_truncate_width={}
 let g:airline#extensions#tabline#enabled=1
@@ -71,4 +73,16 @@ function! AirlineInit()
 endfunction
 
 autocmd User AirlineAfterInit call AirlineInit()
+
+
+function! DistractionFree()
+    Goyo
+    Limelight!!
+    PencilToggle
+
+    set cursorline!
+    set spell!
+endfunction
+
+nnoremap <leader>/ :call DistractionFree()<CR>
 

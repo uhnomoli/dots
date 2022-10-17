@@ -2,19 +2,25 @@ command=$XDG_CONFIG_HOME/i3blocks/scripts/$BLOCK_NAME
 interval=5
 markup=pango
 separator=false
-separator_block_width=1
+separator_block_width=0
 
-background=#073642
-border=#002B36
+background=#3D382E
+border=#29251D
 border_top=0
 border_right=0
 border_bottom=0
 border_left=0
-color=#93A1A1
+color=#E8DBB2
 
 [wifi]
 instance=wlp1s0
 interval=10
+
+[separator]
+background=#29251D
+color=#3D382E
+full_text=<span size='13pt'></span>
+interval=0
 
 [volume]
 instance=Master
@@ -28,12 +34,23 @@ signal=10
 [battery]
 interval=30
 
+[separator]
+color=#29251D
+full_text=<span size='13pt'></span>
+interval=0
+
 [disk]
 interval=30
 
+[separator]
+background=#3D382E
+color=#4F483B
+full_text=<span size='13pt'></span>
+interval=0
+
 [time]
-command=date '+ %H%M (%d%b%y) ' | tr '[:lower:]' '[:upper:]'
+command=date '+ %H%M <span color="#8EC07C" weight="bold">(%d%^b%y)</span> '
 interval=5
-background=#FDF6E3
-color=#586E75
+background=#4F483B
+color=#FBF1C7
 

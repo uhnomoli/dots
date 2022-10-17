@@ -1,10 +1,12 @@
 # vars
 set $mod Mod4
 
+# displays
 set $d1 HDMI-0-1
 set $d2 HDMI-0-2
 set $d3 HDMI-0-3
 
+# workspaces
 set $ws1 www
 set $ws2 sys
 set $ws3 dev
@@ -13,23 +15,37 @@ set $ws5 emu
 set $ws6 net
 set $ws0 msc
 
-set $yellow  #B58900
-set $orange  #CB4B16
-set $red     #DC322F
-set $magenta #D33682
-set $violet  #6C71C4
-set $blue    #268BD2
-set $cyan    #2AA198
-set $green   #859900
+# colors
+set $bg0      #29251D
+set $bg0_h    #211E18
+set $bg0_s    #332E24
+set $bg1      #3D382E
+set $bg2      #4F483B
+set $bg3      #665E4D
+set $bg4      #7D735E
 
-set $base03  #002B36
-set $base02  #073642
-set $base01  #586E75
-set $base00  #657B83
-set $base0   #839496
-set $base1   #93A1A1
-set $base2   #EEE8D5
-set $base3   #FDF6E3
+set $fg0      #FBF1C7
+set $fg1      #EBDBB2
+set $fg2      #D5C4A1
+set $fg3      #BDAE93
+set $fg4      #A89984
+
+set $aqua_d   #689D6A
+set $aqua_l   #8EC07C
+set $blue_d   #458588
+set $blue_l   #83A598
+set $gray_d   #928374
+set $gray_l   #A89984
+set $green_d  #98971A
+set $green_l  #B8BB26
+set $orange_d #D65D0E
+set $orange_l #FE8019
+set $purple_d #B16286
+set $purple_l #D3869B
+set $red_d    #CC241D
+set $red_l    #FB4934
+set $yellow_d #D79921
+set $yellow_l #FABD2F
 
 set $cmd_lock    i3lock -ui $XDG_CONFIG_HOME/feh/lock_screen
 set $cmd_scr_i3b pkill -RTMIN+10 i3blocks
@@ -40,17 +56,19 @@ set $cmd_vol_i3b pkill -RTMIN+11 i3blocks
 font pango:Source Code Pro 10
 
 # style
-new_window pixel 3
-new_float none
-
+default_border normal 0
+default_floating_border none
 gaps inner 10
+title_align center
+
+for_window [all] title_format "<span size='smaller' text_transform='uppercase'>%title</span>"
 
 # colors
-#                       BORDER   BACKGROUND FOREGROUND INDICATOR INNER_BORDER
-client.focused          $base3   $base2     $base01    $cyan     $base2
-client.focused_inactive $base02  $base03    $base01    $cyan     $base2
-client.unfocused        $base02  $base03    $base1     $cyan     $base03
-client.urgent           $base02  $base03    $base1     $cyan     $magenta
+#                       BORDER BACKGROUND FOREGROUND INDICATOR INNER_BORDER
+client.focused          $bg2   $bg2       $fg1       $bg2      $bg2
+client.focused_inactive $bg1   $bg1       $fg2       $bg1      $bg1
+client.unfocused        $bg1   $bg1       $fg2       $bg1      $bg1
+client.urgent           $bg1   $bg1       $fg2       $bg1      $bg1
 
 # workspaces
 workspace $ws1 output $d1
@@ -70,14 +88,14 @@ bar {
 
     # colors
     colors {
-        background $base03
+        background $bg0
 
-        #                  BORDER   BACKGROUND FOREGROUND
-        focused_workspace  $base2   $base2     $base01
-        active_workspace   $base02  $base02    $base1
-        inactive_workspace $base02  $base02    $base1
-        urgent_workspace   $magenta $magenta   $base3
-        binding_mode       $magenta $magenta   $base3
+        #                  BORDER    BACKGROUND FOREGROUND
+        focused_workspace  $aqua_l   $aqua_l    $bg0
+        active_workspace   $bg1      $bg1       $fg2
+        inactive_workspace $bg1      $bg1       $fg2
+        urgent_workspace   $orange_l $orange_l  $bg0
+        binding_mode       $red_l    $red_l     $bg0
     }
 }
 
@@ -89,14 +107,14 @@ bar {
 
     # colors
     colors {
-        background $base03
+        background $bg0
 
-        #                  BORDER   BACKGROUND FOREGROUND
-        focused_workspace  $base2   $base2     $base01
-        active_workspace   $base02  $base02    $base1
-        inactive_workspace $base02  $base02    $base1
-        urgent_workspace   $magenta $magenta   $base3
-        binding_mode       $magenta $magenta   $base3
+        #                  BORDER  BACKGROUND FOREGROUND
+        focused_workspace  $aqua_l   $aqua_l    $bg0
+        active_workspace   $bg1      $bg1       $fg2
+        inactive_workspace $bg1      $bg1       $fg2
+        urgent_workspace   $orange_l $orange_l  $bg0
+        binding_mode       $red_l    $red_l     $bg0
     }
 }
 
@@ -193,12 +211,14 @@ bindsym XF86AudioRaiseVolume exec $cmd_vol 5%+; exec $cmd_vol_i3b
 bindsym XF86AudioLowerVolume exec $cmd_vol 5%-; exec $cmd_vol_i3b
 bindsym XF86AudioMute exec $cmd_vol toggle; exec $cmd_vol_i3b
 
+bindsym Print exec flameshot gui
+
 # app keybinds
 bindsym $mod+d exec rofi -show run
 bindsym $mod+Shift+d exec rofi -show drun
 
 bindsym $mod+Return exec i3-sensible-terminal
-bindsym $mod+Shift+Return exec chromium
+bindsym $mod+Shift+Return exec google-chrome-stable
 
 bindsym $mod+z exec urxvt -name console -cd ~/projects/
 bindsym $mod+Shift+z exec urxvt -name vim -cd ~/projects/ -e vim
@@ -206,6 +226,7 @@ bindsym $mod+Shift+z exec urxvt -name vim -cd ~/projects/ -e vim
 # app placement
 assign [class="Chromium"] $ws1
 assign [class="Firefox"] $ws1
+assign [class="Google-chrome"] $ws1
 assign [class="MuPDF"] $ws0
 assign [class="obs"] $ws0
 assign [class="^URxvt$" instance="^console$"] $ws3

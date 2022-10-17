@@ -6,6 +6,6 @@ if [[ "${BRIGHTNESS}" -le 0 ]]; then
     exit
 fi
 
-echo " <span color='#586E75'>scr</span> $BRIGHTNESS% "
-echo " <span color='#586E75'>scr</span> $BRIGHTNESS% "
+echo " <span color='#FE8019'>SCR</span> $BRIGHTNESS% "
+echo " <span color='#FE8019'>SCR</span> $BRIGHTNESS% "
 

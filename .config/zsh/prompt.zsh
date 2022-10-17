@@ -1,15 +1,5 @@
 setopt prompt_subst
 
-# python venv info
-pvenv_prompt() {
-    if [ -n "$VIRTUAL_ENV" ]; then
-        echo "%F{10}(${VIRTUAL_ENV:t})%f "
-    fi
-}
-
-VIRTUAL_ENV_DISABLE_PROMPT=1
-
-
 # git info
 git_prompt() {
     local branch="$(git symbolic-ref -q HEAD 2>/dev/null)"
@@ -18,26 +8,35 @@ git_prompt() {
 
         local ahead="$(git log --oneline @{u}.. 2>/dev/null | wc -l | tr -d ' ')"
         if [ "$ahead" -gt 0 ]; then
-            state="${state}%F{2}+%f"
+            state="${state}%F{10}+%f"
         fi
 
         local behind="$(git log --oneline ..@{u} 2>/dev/null | wc -l | tr -d ' ')"
         if [ "$behind" -gt 0 ]; then
-            state="${state}%F{1}-%f"
+            state="${state}%F{9}-%f"
         fi
 
         if ! git diff --quiet 2>/dev/null; then
-            state="${state}%F{3}~%f"
+            state="${state}%F{11}~%f"
         fi
 
-        echo " %F{9}($state%F{9})%f"
+        echo " %F{11}($state%F{11})%f"
     fi
 }
 
-PVENV_PROMPT_STR='$(pvenv_prompt)'
-GIT_PROMPT_STR='$(git_prompt)'
+# python venv info
+pvenv_prompt() {
+    if [ -n "$VIRTUAL_ENV" ]; then
+        echo "%F{10}(${VIRTUAL_ENV:t})%f "
+    fi
+}
 
-PS1="%{%F{0}%}${(l:$COLUMNS::─:)}%{%f%}
-${PVENV_PROMPT_STR}%F{12}%n%F{7}@%F{12}%m %B%F{14}(%2~)%f%b${GIT_PROMPT_STR}
-    %{%F{6}%}%#%{%f%} "
+COLOR_OVERRIDE='$(echo -ne '\''\e]4;237;#3D382E\a'\'')'
+GIT_PROMPT_STR='$(git_prompt)'
+PVENV_PROMPT_STR='$(pvenv_prompt)'
+VIRTUAL_ENV_DISABLE_PROMPT=1
+
+PS1="${COLOR_OVERRIDE}%{%F{237}%}${(l:$COLUMNS::─:)}%{%f%}
+${PVENV_PROMPT_STR}%F{7}%n%F{8}@%F{7}%m %B%F{14}(%2~)%f%b${GIT_PROMPT_STR}
+    %{%F{11}%}%#%{%f%} "
 

@@ -26,10 +26,7 @@ fi
 source /etc/X11/xinit/xinitrc.d/50-systemd-user.sh
 
 # configure virtual displays
-xrandr --output HDMI-0 --mode 5120x1440
-xrandr --setmonitor HDMI-0-1 1280/298x1440/336+0+0 HDMI-0
-xrandr --setmonitor HDMI-0-2 2560/597x1440/336+1280+0 none
-xrandr --setmonitor HDMI-0-3 1280/298x1440/336+3840+0 none
+bash "${HOME}/scripts/monitor-split"
 
 # disable dpms
 xset s 0 0 s noblank s noexpose s off

@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+
+if [[ ! -f "$XAUTHORITY" ]]; then
+    exit 1
+fi
+
+if [[ "$(xrandr -q --verbose | grep '5120x1440')" ]]; then
+    if [[ "$(xrandr --listmonitors | grep -P '\s+\d+:\s+\+')" ]]; then
+        {
+            MODE="$(xrandr -q | grep -ioP '(?<= current )\d+\s+x\s+\d+')"
+            MODE_HEIGHT="$(echo "$MODE" | grep -oP '\d+$')"
+            MODE_WIDTH="$(echo "$MODE" | grep -oP '^\d+')"
+
+            if [[ "$MODE_HEIGHT" -ne 1440 || "$MODE_WIDTH" -ne 5120 ]]; then
+                xrandr --output HDMI-0 --fbmm 1190x340 --mode 5120x1440
+            fi
+
+            xrandr --setmonitor HDMI-0-1 1280/297x1440/340+0+0 HDMI-0
+            xrandr --setmonitor HDMI-0-2 2560/595x1440/340+1280+0 none
+            xrandr --setmonitor HDMI-0-3 1280/298x1440/340+3840+0 none
+        } &>>/dev/null
+    fi
+fi
+

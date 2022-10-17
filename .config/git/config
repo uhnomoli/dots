@@ -1,10 +1,3 @@
-[user]
-    name = Anomareh
-    email = Anomareh@users.noreply.github.com
-[core]
-    editor = vim
-[push]
-    default = simple
 [alias]
     aa = add .
     ad = add
@@ -32,11 +25,31 @@
     pu = push -u
     pl = pull
     ra = remote add
+    rc = rebase --continue
     re = rebase
     ri = rebase -i
+    rv = remove -v
+    sh = stash
+    sp = stash pop
     st = status
-[init]
-    templatedir = ~/.config/git/templates
 [apply]
     whitespace = nowarn
+[core]
+    editor = vim
+[credential]
+    helper = /usr/lib/git-core/git-credential-libsecret
+[filter "lfs"]
+    clean = git-lfs clean -- %f
+    smudge = git-lfs smudge -- %f
+    process = git-lfs filter-process
+    required = true
+[init]
+    templatedir = ~/.config/git/templates
+[pull]
+    ff = only
+[push]
+    default = simple
+[user]
+    email = 160705+uhnomoli@users.noreply.github.com
+    name = Andrew Fricke
 

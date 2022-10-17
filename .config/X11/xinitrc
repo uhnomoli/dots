@@ -1,17 +1,16 @@
-#!/bin/sh
+#!/usr/bin/env bash
 
-userresources=$XDG_CONFIG_HOME/X11/Xresources
-usermodmap=$XDG_CONFIG_HOME/X11/Xmodmap
+userresources="${XDG_CONFIG_HOME}/X11/Xresources"
+usermodmap="${XDG_CONFIG_HOME}/X11/Xmodmap"
 sysresources=/etc/X11/xinit/.Xresources
 sysmodmap=/etc/X11/xinit/.Xmodmap
 
-
 # source system defaults
-if [ -f $sysresources ]; then
-    xrdb -merge $sysresources
+if [ -f "$sysresources" ]; then
+    xrdb -merge "$sysresources"
 fi
-if [ -f $sysmodmap ]; then
-    xmodmap $sysmodmap
+if [ -f "$sysmodmap" ]; then
+    xmodmap "$sysmodmap"
 fi
 
 if [ -f "$userresources" ]; then
@@ -32,7 +31,7 @@ bash "${HOME}/scripts/monitor-split"
 xset s 0 0 s noblank s noexpose s off
 
 # start apps
-sh "$XDG_CONFIG_HOME/feh/wallpaper"
+bash "${XDG_CONFIG_HOME}/feh/wallpaper"
 picom -b
 
 exec i3

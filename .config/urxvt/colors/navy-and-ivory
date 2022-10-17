@@ -1,6 +1,6 @@
-URxvt*foreground:   #E8DFD6
 URxvt*background:   #021B21
 URxvt*cursorColor:  #E8DFD6
+URxvt*foreground:   #E8DFD6
 
 ! black
 URxvt*color0:       #032C36

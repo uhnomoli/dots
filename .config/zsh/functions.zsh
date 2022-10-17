@@ -1,16 +1,11 @@
-webcam_reset() {
-    v4l2-ctl -c brightness=128
-    v4l2-ctl -c contrast=128
-    v4l2-ctl -c saturation=128
-    v4l2-ctl -c white_balance_temperature_auto=0
-    v4l2-ctl -c gain=25
-    v4l2-ctl -c white_balance_temperature=4600
-    v4l2-ctl -c sharpness=128
-    v4l2-ctl -c exposure_auto=1
-    v4l2-ctl -c exposure_absolute=450
-    v4l2-ctl -c exposure_auto_priority=0
-    v4l2-ctl -c focus_auto=0
-    v4l2-ctl -c focus_absolute=0
+duh() {
+    local DIRECTORY="$1"
+
+    if [[ "$#" -ne 1 ]]; then
+        DIRECTORY='.'
+    fi
+
+    du -hd1 "$DIRECTORY" 2>/dev/null | sort -h
 }
 
 pcd() {
@@ -98,5 +93,20 @@ rq() {
 
 snip() {
     cat "$1" | xclip -selection clipboard
+}
+
+webcam_reset() {
+    v4l2-ctl -c brightness=128
+    v4l2-ctl -c contrast=128
+    v4l2-ctl -c saturation=128
+    v4l2-ctl -c white_balance_temperature_auto=0
+    v4l2-ctl -c gain=25
+    v4l2-ctl -c white_balance_temperature=4600
+    v4l2-ctl -c sharpness=128
+    v4l2-ctl -c exposure_auto=1
+    v4l2-ctl -c exposure_absolute=450
+    v4l2-ctl -c exposure_auto_priority=0
+    v4l2-ctl -c focus_auto=0
+    v4l2-ctl -c focus_absolute=0
 }
 

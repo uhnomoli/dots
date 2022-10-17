@@ -36,6 +36,7 @@ xset s 0 0 s noblank s noexpose s off
 
 # start apps
 sh "$XDG_CONFIG_HOME/feh/wallpaper"
+picom -b
 
 exec i3
 

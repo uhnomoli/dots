@@ -32,11 +32,11 @@ export PARALLEL_HOME="${XDG_CONFIG_HOME}/parallel"
 export NPM_CONFIG_USERCONFIG="$XDG_CONFIG_HOME/npm/npmrc"
 
 # set perl directories
-export PATH="/home/anomareh/perl5/bin${PATH:+:${PATH}}"
-export PERL5LIB="/home/anomareh/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"
-export PERL_LOCAL_LIB_ROOT="/home/anomareh/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"
-export PERL_MB_OPT="--install_base \"/home/anomareh/perl5\""
-export PERL_MM_OPT="INSTALL_BASE=/home/anomareh/perl5"
+export PATH="${HOME}/perl5/bin${PATH:+:${PATH}}"
+export PERL5LIB="${HOME}/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"
+export PERL_LOCAL_LIB_ROOT="${HOME}/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"
+export PERL_MB_OPT="--install_base \"${HOME}/perl5\""
+export PERL_MM_OPT="INSTALL_BASE=${HOME}/perl5"
 
 # set python directories
 export PYTHONPYCACHEPREFIX="${XDG_CACHE_HOME}/python"

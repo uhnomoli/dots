@@ -42,6 +42,9 @@ export PERL_MM_OPT="INSTALL_BASE=${HOME}/perl5"
 export PYTHONPYCACHEPREFIX="${XDG_CACHE_HOME}/python"
 export PYTHONUSERBASE="${XDG_DATA_HOME}/python"
 
+# set rust directories
+export CARGO_HOME="${XDG_DATA_HOME}/cargo"
+
 # set vimrc location
 export VIMINIT='let $MYVIMRC="$XDG_CONFIG_HOME/vim/vimrc" | source $MYVIMRC'
 

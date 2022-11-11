@@ -19,6 +19,7 @@
     lo = log --oneline
     mf = merge --ff-only
     mg = merge --no-ff
+    ms = merge --squash
     pa = push --all
     pd = push -d
     ph = push

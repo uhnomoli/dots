@@ -47,7 +47,7 @@ set $red_l    #FB4934
 set $yellow_d #D79921
 set $yellow_l #FABD2F
 
-set $cmd_lock    i3lock -ui $XDG_CONFIG_HOME/feh/lock_screen
+set $cmd_lock    i3lock -ui $XDG_CONFIG_HOME/feh/lock-screen
 set $cmd_scr_i3b pkill -RTMIN+10 i3blocks
 set $cmd_vol     amixer set Master
 set $cmd_vol_i3b pkill -RTMIN+11 i3blocks
